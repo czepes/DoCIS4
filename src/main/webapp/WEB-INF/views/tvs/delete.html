@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Delete</title>
+  <link rel="stylesheet" th:href="@{../css/tvs.css}">
+</head>
+<body>
+  <h3>Find by ID</h3>
+  <form th:method="get" th:action="@{/tvs/find-by-id}">
+    <label for="id">ID: </label>
+    <input type="number" th:name="id" id="id" required>
+    <input type="submit" value="Find">
+  </form>
+  <br>
+  <h3>Select Television</h3>
+  <div th:each="tv : ${tvs}">
+    <div class="container">
+      <p>ID: <span th:text="${tv.id}">ID</span></p>
+      <p>Model: <span th:text="${tv.model}">model</span></p>
+      <p>Producer: <span th:text="${tv.producer}">producer</span></p>
+      <p>Production country: <span th:text="${tv.productionCountry}">production country</span></p>
+      <p>Width: <span th:text="${tv.width}">width</span></p>
+      <p>Height: <span th:text="${tv.height}">height</span></p>
+      <hr>
+      <form th:method="post" th:action="@{/tvs/{id}/delete(id=${tv.id})}">
+        <input type="submit" value="Delete">
+      </form>
+    </div>
+  </div>
+  <a th:href="@{/tvs}">Menu</a>
+</body>
+</html>

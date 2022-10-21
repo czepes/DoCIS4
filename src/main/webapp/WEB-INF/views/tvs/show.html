@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Show</title>
+  <link rel="stylesheet" th:href="@{../css/tvs.css}">
+</head>
+<body>
+  <div th:if="${tvs.isEmpty()}">
+    <h2>Televisions not found</h2>
+    <p>No televisions were found</p>
+  </div>
+  <div th:each="tv : ${tvs}">
+    <div class="container">
+      <p>ID: <span th:text="${tv.id}">ID</span></p>
+      <p>Model: <span th:text="${tv.model}">model</span></p>
+      <p>Producer: <span th:text="${tv.producer}">producer</span></p>
+      <p>Production country: <span th:text="${tv.productionCountry}">production country</span></p>
+      <p>Width: <span th:text="${tv.width}">width</span></p>
+      <p>Height: <span th:text="${tv.height}">height</span></p>
+    </div>
+  </div>
+  <a th:href="@{/tvs}">Menu</a>
+</body>
+</html>
