@@ -2,6 +2,14 @@
 
 Development of Corporate Information Systems laboratory #4
 
+### Database
+
+The database is accessed using Spring Data JPA with Hibernate.
+
+Run [`init.sql`](init.sql) to create table and fill it with test values.
+
+Configure Database connection in [`data.properties`](src/main/resources/application.properties).
+
 ## Spring MVC
 ### Purpose of work
 Become familiar with the MVC pattern in Spring and how it is used when creating web applications.
